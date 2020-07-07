@@ -1,1 +1,1 @@
-<comp></comp>
+<Sku sku-tree="{{sku.tree}}" sku-list="{{sku.list}}" bindselectChange="selectChange" bindchangePic="changePic" bindtextChange="textChange" themeColor="{{theme}}" />

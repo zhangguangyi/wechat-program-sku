@@ -12,7 +12,7 @@ const dev = path.join(demoDist, 'components')
 const dist = path.resolve(__dirname, '../miniprogram_dist')
 
 module.exports = {
-  entry: ['index', 'lib'],
+  entry: ['/sku/index'],
 
   isDev,
   isWatch,
@@ -23,7 +23,7 @@ module.exports = {
   demoDist, // demo 目标目录
 
   wxss: {
-    less: false, // 使用 less 来编写 wxss
+    less: true, // 使用 less 来编写 wxss
     sourcemap: false, // 生成 less sourcemap
   },
 
@@ -49,9 +49,11 @@ module.exports = {
           options: {
             cacheDirectory: true,
           },
-        }, {
-          loader: 'eslint-loader',
-        }],
+        },
+        // {
+        //   loader: 'eslint-loader',
+        // }
+        ],
         exclude: /node_modules/
       }, {
         test: /\.ts$/,
@@ -85,12 +87,12 @@ module.exports = {
     optimization: {
       minimize: false,
     },
-    devtool: 'source-map', // 生成 js sourcemap
+    // devtool: 'source-map', // 生成 js sourcemap
     performance: {
       hints: 'warning',
       assetFilter: assetFilename => assetFilename.endsWith('.js')
     }
   },
 
-  copy: ['./assets', './utils.js'], // 将会复制到目标目录
+  copy: ['./common.wxs'], // 将会复制到目标目录
 }

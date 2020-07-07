@@ -1,0 +1,11 @@
+
+<wxs src="../common.wxs" module="commonComputed" />
+
+<view class="sku-box" wx:if="{{cpSkuTree.length}}">
+  <view class="sku-row" wx:for="{{cpSkuTree}}" wx:key="{{index}}">
+    <view class="sku-title">{{item.k}}</view>
+    <view class="sku-wrap flex-row">
+      <view class="sku-item {{iitem.disabled ? 'disabled': ''}}" style="color: {{iitem.disabled ? '#ababab' : iitem.selected ? themeColor : '#555'}};background: {{iitem.selected ? commonComputed.colorBg(themeColor, 0.1) : '#EAEAEA'}};border-color: {{iitem.selected ? themeColor : '#EAEAEA'}}" wx:for="{{item.v}}" wx:for-item="iitem" wx:for-index="iindex" wx:key="{{iindex}}" data-index="{{index}}" data-iindex="{{iindex}}" data-k="{{item}}" data-value="{{iitem}}" catchtap="selectSku">{{iitem.name}}</view>
+    </view>
+  </view>
+</view>
